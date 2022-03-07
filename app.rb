@@ -4,5 +4,5 @@ require 'sinatra/reloader'
 require 'sqlite3'
 
 get '/' do
-  erb 'Hello'
+  erb :index
 end
