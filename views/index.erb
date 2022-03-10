@@ -4,7 +4,7 @@
     <% @products.each do |product| %>
       <div class="col position-relative">
         <div class="card text-dark bg-light mb-3 top-50 start-50 translate-middle" style="width: 25rem;">
-            <img src="<%= product.path_to_image %>" class="card-img-top" alt="..." style="width: 25rem;">
+            <img src="<%= product.path_to_image %>" class="card-img-top" alt="<%= product.title %>" style="width: 25rem;">
             <div class="card-body">
               <h5 class="card-title"><%= product.title %></h5>
               <div class="card-text">
@@ -13,7 +13,7 @@
                     <div class="col">Размер: <%= product.size.to_i %> см</div>
                     <div class="col">Острая: <%= product.is_spicy == true ? 'Да' : 'Нет' %></div>
                     <div class="col">Вегетарианская: <%= product.is_veg == true ? 'Да' : 'Нет' %></div>
-                    <div class="col">Лучшая цена: <%= product.is_best_offer == true ? 'Да' : 'Нет' %></div>
+                    <div class="col mb-3">Лучшая цена: <%= product.is_best_offer == true ? 'Да' : 'Нет' %></div>
                 </div>
                 <h6>Цена: <%= product.price %> руб.</h6>
               </div>
