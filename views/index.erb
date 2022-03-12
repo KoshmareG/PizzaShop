@@ -1,6 +1,6 @@
 <h4 class="mb-3" style="text-align: center">Добро пожаловать в PizzaShop</h4>
 <div class="container">
-    <div class="row row-cols-2">
+    <div class="row">
     <% @products.each do |product| %>
       <div class="col position-relative">
         <div class="card text-dark bg-light mb-3 top-50 start-50 translate-middle" style="width: 25rem;">
@@ -17,7 +17,7 @@
                 </div>
                 <h6>Цена: <%= product.price %> руб.</h6>
               </div>
-              <a href="#" class="btn btn-primary">В корзину</a>
+              <a class="btn btn-primary" onclick="add_to_cart(<%= product.id %>)">В корзину</a>
             </div>
           </div>
       </div>

@@ -1,10 +1,7 @@
-function something()
+function add_to_cart(id)
 {
-    var x = window.localStorage.getItem('b');
-
+    var key = 'product' + id;
+    var x = window.localStorage.getItem(key);
     x = x * 1 + 1;
-
-    window.localStorage.setItem('b', x);
-
-    alert(x);
+    window.localStorage.setItem(key, x);
 }
