@@ -4,6 +4,7 @@ function add_to_cart(id)
     var x = window.localStorage.getItem(key);
     x = x * 1 + 1;
     window.localStorage.setItem(key, x);
+    update_orders();
 }
 
 function cart_total()
@@ -20,6 +21,12 @@ function cart_total()
         }
     }
     return total;
+}
+
+function update_orders()
+{
+    var orders = cart_orders();
+    $('#cart').val(orders);
 }
 
 function cart_orders()
