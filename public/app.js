@@ -16,6 +16,7 @@ function cart_total()
         }
     }
     cart_array.forEach(Element => total = total * 1 + Element * 1);
+    console.log(total);
 }
 
 cart_total();
