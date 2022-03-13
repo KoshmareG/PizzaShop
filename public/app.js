@@ -9,14 +9,17 @@ function add_to_cart(id)
 function cart_total()
 {
     var total = 0;
-    var cart_array = [];
-    for(var i in localStorage){
-        if(localStorage.hasOwnProperty(i)){
-            cart_array.push(localStorage[i]);
+    for(var i = 0; i < window.localStorage.length; i++)
+    {
+        var key = window.localStorage.key(i);
+        var value = window.localStorage.getItem(key);
+
+        if(key.indexOf('product_') == 0)
+        {
+            total = total * 1 + value * 1;
         }
     }
-    cart_array.forEach(Element => total = total * 1 + Element * 1);
-    console.log(total);
+    return total;
 }
 
 cart_total();
