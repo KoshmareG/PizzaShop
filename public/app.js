@@ -46,10 +46,8 @@ function cart_orders()
 
         if(key.indexOf('product_') == 0)
         {
-            orders = orders + key + '=' + value + ',';
+            orders = orders + key + ':' + value + ',';
         }
     }
     return orders;
 }
-
-cart_total();
