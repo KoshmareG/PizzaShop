@@ -18,6 +18,21 @@ get '/about' do
 end
 
 post '/cart' do
-  @cart = params[:cart]
+  cart_list = params[:orders]
+
+  cart = cart_list.split(",")
+
+  @cart_arr = []
+
+  cart.each do |x|
+	  x = x.split("_")
+	  x = x[1].split(":")
+	  @cart_arr << x
+  end
+
+  @cart_arr.each do |item|
+    item[0] = Product.find(item[0])
+  end
+  
   erb :cart
 end
