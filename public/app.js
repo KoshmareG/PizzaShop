@@ -5,6 +5,7 @@ function add_to_cart(id)
     x = x * 1 + 1;
     window.localStorage.setItem(key, x);
     update_orders();
+    update_cart_span();
 }
 
 function cart_total()
@@ -27,6 +28,12 @@ function update_orders()
 {
     var orders = cart_orders();
     $('#cart').val(orders);
+}
+
+function update_cart_span() 
+{
+    var text = cart_total();
+    document.getElementById("cart_span").innerHTML = text;
 }
 
 function cart_orders()
