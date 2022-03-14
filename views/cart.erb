@@ -29,4 +29,10 @@
         <th class="table-active" scope="row"><%= total_price %> руб.</th>
       </tr>
     </tbody>
-  </table>
+</table>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <form action="/order" method="post">
+        <button type="submit" class="btn btn-outline-success">Оформление заказа</button>
+    </form>
+</div>
+
