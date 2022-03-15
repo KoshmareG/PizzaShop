@@ -30,9 +30,36 @@
       </tr>
     </tbody>
 </table>
-<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <form action="/order" method="post">
-        <button type="submit" class="btn btn-outline-success">Оформление заказа</button>
-    </form>
-</div>
+<form action="/order" method="post" class="row g-3 needs-validation" novalidate>
+        <div class="mb-3">
+            <label class="form-label">Ваше имя</label>
+            <input name="order[name]" type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Адрес доставки</label>
+            <input name="order[address]" type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Контактный номер телефона</label>
+            <input name="order[phone]" type="text" class="form-control" required>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="submit" class="btn btn-outline-success">Оформление заказа</button>
+        </div>
+</form>
 
+<script>
+(function () {
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+</script>

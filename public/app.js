@@ -28,6 +28,7 @@ function update_orders()
 {
     var orders = cart_orders();
     $('#cart').val(orders);
+    $('#cart_order').val(orders);
 }
 
 function update_cart_span() 
