@@ -30,7 +30,7 @@ end
 
 post '/order' do
   cart_list = params[:client_order]
-  client_order = params[:client_data]
+  @client_order = params[:client_data]
 
   cart_data cart_list
 
@@ -42,12 +42,12 @@ post '/order' do
     total_price += item[0].price.to_f * item[1].to_f
   end
 
-  client_order[:order] = order_list
-  client_order[:total_price] = total_price.to_s
-  add_client_order = Order.new client_order
-  add_client_order.save
+  @client_order[:order] = order_list
+  @client_order[:total_price] = total_price.to_s
+  add_client_order = Order.new @client_order
+  #add_client_order.save
 
-  erb "#{client_order}"
+  erb :order
 end
 
 def cart_data cart_list

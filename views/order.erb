@@ -1,1 +1,16 @@
-<h4 class="mb-3" style="text-align: center">Оформление заказа</h4>
+<h4 class="mb-3" style="text-align: center">Спасибо за заказ</h4>
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">Ваш заказ: <%= @client_order[:order] %></li>
+    <li class="list-group-item">Адрес доставки: <%= @client_order[:address] %></li>
+    <li class="list-group-item">Контактный телефон: <%= @client_order[:phone] %></li>
+    <li class="list-group-item">Сумма к оплате: <%= @client_order[:total_price] %> руб.</li>
+  </ul>
+
+<script>
+
+	$(function() {
+        clear_cart();
+        update_cart_span();
+	});
+  
+</script>
