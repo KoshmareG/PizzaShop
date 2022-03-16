@@ -18,9 +18,19 @@ get '/about' do
 end
 
 post '/cart' do
-  @cart_list = params[:orders]
+  cart_list = params[:orders]
 
-  cart = @cart_list.split(",")
+  cart_data cart_list
+  
+  erb :cart
+end
+
+post '/order' do
+  erb :order
+end
+
+def cart_data cart_list
+  cart = cart_list.split(",")
 
   @cart_arr = []
 
@@ -33,12 +43,4 @@ post '/cart' do
   @cart_arr.each do |item|
     item[0] = Product.find(item[0])
   end
-  
-  erb :cart
-end
-
-post '/order' do
-  erb "Заказ"
-
-  #erb :order
 end
