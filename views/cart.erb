@@ -31,7 +31,7 @@
     </tbody>
 </table>
 <form action="/order" method="post" class="row g-3 needs-validation" novalidate>
-    <input name="order[orders_input]" type="hidden" value="<%= @cart_list %>" />
+    <input name="client_order" type="hidden" value="<%= @cart_list %>" />
     <div class="mb-3">
         <label class="form-label">Ваше имя</label>
         <input name="order[name]" type="text" class="form-control" required>
@@ -45,7 +45,7 @@
         <input name="order[phone]" type="text" class="form-control" required>
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button type="submit" class="btn btn-outline-success">Оформление заказа</button>
+        <button type="submit" class="btn btn-outline-success">Заказать</button>
     </div>
 </form>
 
