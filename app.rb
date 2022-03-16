@@ -8,6 +8,9 @@ set :database, {adapter: "sqlite3", database: "pizzashop.db"}
 class Product < ActiveRecord::Base
 end
 
+class Order < ActiveRecord::Base
+end
+
 get '/' do
   @products = Product.all
   erb :index
@@ -27,18 +30,24 @@ end
 
 post '/order' do
   cart_list = params[:client_order]
+  client_order = params[:client_data]
 
   cart_data cart_list
 
-  order = ""
+  order_list = ""
   total_price = 0
 
   @cart_arr.each do |item|
-    order << item[0].title + " - " + item[1] + "; "
+    order_list << item[0].title + " - " + item[1] + "; "
     total_price += item[0].price.to_f * item[1].to_f
   end
 
-  erb "#{order} #{total_price}"
+  client_order[:order] = order_list
+  client_order[:total_price] = total_price.to_s
+  add_client_order = Order.new client_order
+  add_client_order.save
+
+  erb "#{client_order}"
 end
 
 def cart_data cart_list

@@ -34,15 +34,15 @@
     <input name="client_order" type="hidden" value="<%= @cart_list %>" />
     <div class="mb-3">
         <label class="form-label">Ваше имя</label>
-        <input name="order[name]" type="text" class="form-control" required>
+        <input name="client_data[client_name]" type="text" class="form-control" required>
     </div>
     <div class="mb-3">
         <label class="form-label">Адрес доставки</label>
-        <input name="order[address]" type="text" class="form-control" required>
+        <input name="client_data[address]" type="text" class="form-control" required>
     </div>
     <div class="mb-3">
         <label class="form-label">Контактный номер телефона</label>
-        <input name="order[phone]" type="text" class="form-control" required>
+        <input name="client_data[phone]" type="text" class="form-control" required>
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <button type="submit" class="btn btn-outline-success">Заказать</button>
