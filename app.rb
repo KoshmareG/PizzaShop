@@ -45,7 +45,7 @@ post '/order' do
   @client_order[:order] = order_list
   @client_order[:total_price] = total_price.to_s
   add_client_order = Order.new @client_order
-  #add_client_order.save
+  add_client_order.save
 
   erb :order
 end
