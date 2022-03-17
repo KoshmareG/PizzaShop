@@ -20,6 +20,10 @@ get '/about' do
   erb :about
 end
 
+get '/admin' do
+  erb :admin
+end
+
 post '/cart' do
   @cart_list = params[:orders]
 
