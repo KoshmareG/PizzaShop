@@ -57,3 +57,9 @@ function clear_cart()
 {
     localStorage.clear();
 }
+
+function cancel_order()
+{
+    alert('aaa');
+    return false;
+}
