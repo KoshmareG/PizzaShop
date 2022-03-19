@@ -62,5 +62,7 @@ function cancel_order()
 {
     clear_cart();
     update_cart_span();
+    $('#cart_page').text('Корзина очищена');
+    document.getElementById("cart_page").style = "text-align: center";
     return false;
 }

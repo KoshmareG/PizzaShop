@@ -1,54 +1,56 @@
 <h4 class="mb-3" style="text-align: center">Корзина</h4>
-<table class="table table-striped">
-    <thead>
+<div id="cart_page">
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">№</th>
+          <th scope="col">Название</th>
+          <th scope="col">Количество</th>
+          <th scope="col">Стоимость</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% position = 1 %>
+      <% total_items = 0 %>
+      <% total_price = 0 %>
+      <% @cart_arr.each do |item| %>
+        <tr>
+          <th scope="row"><%= position %></th>
+          <td><%= item[0].title %></td>
+          <td ><%= item[1] %> шт.</td>
+          <td><%= item[0].price.to_f * item[1].to_f %> руб.</td>
+        </tr>
+      <% position += 1 %>
+      <% total_items += item[1].to_i %>
+      <% total_price += item[0].price.to_f * item[1].to_f %>
+      <% end %>
       <tr>
-        <th scope="col">№</th>
-        <th scope="col">Название</th>
-        <th scope="col">Количество</th>
-        <th scope="col">Стоимость</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% position = 1 %>
-    <% total_items = 0 %>
-    <% total_price = 0 %>
-    <% @cart_arr.each do |item| %>
-      <tr>
-        <th scope="row"><%= position %></th>
-        <td><%= item[0].title %></td>
-        <td ><%= item[1] %> шт.</td>
-        <td><%= item[0].price.to_f * item[1].to_f %> руб.</td>
-      </tr>
-    <% position += 1 %>
-    <% total_items += item[1].to_i %>
-    <% total_price += item[0].price.to_f * item[1].to_f %>
-    <% end %>
-    <tr>
-        <th colspan="2" class="table-active" scope="row">Итого:</th>
-        <th class="table-active" scope="row"><%= total_items %> шт.</th>
-        <th class="table-active" scope="row"><%= total_price %> руб.</th>
-      </tr>
-    </tbody>
-</table>
-<form action="/order" method="post" class="row g-3 needs-validation" novalidate>
-    <input name="client_order" type="hidden" value="<%= @cart_list %>" />
-    <div class="mb-3">
-        <label class="form-label">Ваше имя</label>
-        <input name="client_data[client_name]" type="text" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Адрес доставки</label>
-        <input name="client_data[address]" type="text" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Контактный номер телефона</label>
-        <input name="client_data[phone]" type="text" class="form-control" required>
-    </div>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-outline-danger" onclick="return cancel_order()">Очистить карзину</button>
-        <button type="submit" class="btn btn-outline-success">Заказать</button>
-    </div>
-</form>
+          <th colspan="2" class="table-active" scope="row">Итого:</th>
+          <th class="table-active" scope="row"><%= total_items %> шт.</th>
+          <th class="table-active" scope="row"><%= total_price %> руб.</th>
+        </tr>
+      </tbody>
+  </table>
+  <form action="/order" method="post" class="row g-3 needs-validation" novalidate>
+      <input name="client_order" type="hidden" value="<%= @cart_list %>" />
+      <div class="mb-3">
+          <label class="form-label">Ваше имя</label>
+          <input name="client_data[client_name]" type="text" class="form-control" required>
+      </div>
+      <div class="mb-3">
+          <label class="form-label">Адрес доставки</label>
+          <input name="client_data[address]" type="text" class="form-control" required>
+      </div>
+      <div class="mb-3">
+          <label class="form-label">Контактный номер телефона</label>
+          <input name="client_data[phone]" type="text" class="form-control" required>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn btn-outline-danger" onclick="return cancel_order()">Очистить карзину</button>
+          <button type="submit" class="btn btn-outline-success">Заказать</button>
+      </div>
+  </form>
+</div>
 
 <script>
 (function () {
