@@ -60,6 +60,7 @@ function clear_cart()
 
 function cancel_order()
 {
-    alert('aaa');
+    clear_cart();
+    update_cart_span();
     return false;
 }
