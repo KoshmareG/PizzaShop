@@ -21,6 +21,7 @@ get '/about' do
 end
 
 get '/admin' do
+  @orders = Order.order "id desc"
   erb :admin
 end
 

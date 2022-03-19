@@ -1,0 +1,14 @@
+<h4 class="mb-3" style="text-align: center">Панель администратора</h4>
+<% @orders.each do |order| %>
+<div class="card mb-3">
+    <h5 class="card-header">Номер заказа: <%= order.id %></h5>
+    <div class="card-body">
+        <p class="card-text">Заказ: <%= order.order %></p>
+        <p class="card-text">Имя: <%= order.client_name %></p>
+        <p class="card-text">Адрес: <%= order.address %></p>
+        <p class="card-text">Номер телефона: <%= order.phone %></p>
+        <p class="card-text">Цена: <%= order.phone %></p>
+        <p class="card-text">Дата заказа: <%= order.created_at %></p>
+    </div>
+</div>
+<% end %>
