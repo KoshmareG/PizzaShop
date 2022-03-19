@@ -28,6 +28,10 @@ end
 post '/cart' do
   @cart_list = params[:orders]
 
+  if @cart_list.size == 0
+    return erb :empty_cart
+  end
+
   cart_data @cart_list
   
   erb :cart
